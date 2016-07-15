@@ -1,0 +1,12 @@
+{
+  "name": "tp-site",
+  "version": "0.0.1",
+  "description": "generated using Luminus version \"2.9.10.79\"",
+  "devDependencies": {
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-cljs-test": "^0.1.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0"
+  }
+}
