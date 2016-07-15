@@ -19,20 +19,16 @@ profiles.clj
 */.DS_Store
 .DS_Store
 figwheel_server.log
-pom.xml
 *jar
 *.psd
 /lib/
 /classes/
 /out/
-/target/
 .lein-deps-sum
-.lein-repl-history
 .lein-plugins/
 .repl
-.nrepl-port
 .sass-cache/
-node_modules/
+/node_modules/
 
 # User-specific stuff:
 .idea/workspace.xml
@@ -65,3 +61,6 @@ resources/public/css/app.*
 ~*
 .idea/inspectionProfiles/
 tmp/
+
+resources/public/css/screen.css
+

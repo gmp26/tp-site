@@ -99,36 +99,38 @@
   
 
   :profiles
-  {:uberjar {:omit-source true
-             
-             :prep-tasks ["compile" ["cljsbuild" "once" "min"]]
-             :aot :all
-             :uberjar-name "tp-site.jar"
-             :source-paths ["env/prod/clj"]
-             :resource-paths ["env/prod/resources"]}
+  {:uberjar       {:omit-source    true
+
+                   :prep-tasks     ["compile" ["cljsbuild" "once" "min"]]
+                   :aot            :all
+                   :uberjar-name   "tp-site.jar"
+                   :source-paths   ["env/prod/clj"]
+                   :resource-paths ["env/prod/resources"]}
 
    :dev           [:project/dev :profiles/dev]
    :test          [:project/test :profiles/test]
 
-   :project/dev  {:dependencies [[prone "1.1.1"]
-                                 [ring/ring-mock "0.3.0"]
-                                 [ring/ring-devel "1.5.0"]
-                                 [pjstadig/humane-test-output "0.8.0"]
-                                 [doo "0.1.6"]
-                                 [binaryage/devtools "0.7.2"]
-                                 [figwheel-sidecar "0.5.4-7"]
-                                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]]
-                  :plugins      [[com.jakemccrary/lein-test-refresh "0.14.0"]
-                                 [lein-doo "0.1.7"]
-                                 [lein-figwheel "0.5.4-7"]
-                                 [org.clojure/clojurescript "1.9.93"]]
-                  
-                  :doo {:build "test"}
-                  :source-paths ["env/dev/clj" "test/clj"]
-                  :resource-paths ["env/dev/resources"]
-                  :repl-options {:init-ns user}
-                  :injections [(require 'pjstadig.humane-test-output)
-                               (pjstadig.humane-test-output/activate!)]}
-   :project/test {:resource-paths ["env/dev/resources" "env/test/resources"]}
-   :profiles/dev {}
+   :project/dev   {:dependencies   [[prone "1.1.1"]
+                                    [ring/ring-mock "0.3.0"]
+                                    [ring/ring-devel "1.5.0"]
+                                    [pjstadig/humane-test-output "0.8.0"]
+                                    [doo "0.1.6"]
+                                    [binaryage/devtools "0.7.2"]
+                                    [figwheel-sidecar "0.5.4-7"]
+                                    [com.cemerick/piggieback "0.2.2-SNAPSHOT"]]
+                   :plugins        [[com.jakemccrary/lein-test-refresh "0.14.0"]
+                                    [lein-doo "0.1.7"]
+                                    [lein-figwheel "0.5.4-7"]
+                                    [org.clojure/clojurescript "1.9.93"]]
+
+                   :doo            {:build "test"
+                                    :alias {:browsers [:chrome :firefox]
+                                            :all      [:browsers :safari]}}
+                   :source-paths   ["env/dev/clj" "test/clj"]
+                   :resource-paths ["env/dev/resources"]
+                   :repl-options   {:init-ns user}
+                   :injections     [(require 'pjstadig.humane-test-output)
+                                    (pjstadig.humane-test-output/activate!)]}
+   :project/test  {:resource-paths ["env/dev/resources" "env/test/resources"]}
+   :profiles/dev  {}
    :profiles/test {}})

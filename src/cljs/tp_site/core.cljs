@@ -19,7 +19,7 @@
 (defn navbar []
   (let [collapsed? (r/atom true)]
     (fn []
-      [:nav.navbar.navbar-light.bg-faded
+      [:nav.navbar.navbar-light.bg-faded.navbar-fixed-top
        [:button.navbar-toggler.hidden-sm-up
         {:on-click #(swap! collapsed? not)} "☰"]
        [:div.collapse.navbar-toggleable-xs
